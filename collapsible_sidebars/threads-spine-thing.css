@@ -1,0 +1,71 @@
+:root {
+    /* Change this to a 1 for a more curved spine appearance */
+    --always-hide-trailing-spine: 0;
+    /* How longer the cursor needs to be in/out of the thread/channel to expand or collapse */
+    --thread-expand-delay: 0.15s;
+    --thread-collapse-delay: 0.3s;
+    /* How fast you want it to expand or collapse */
+    --thread-animation-speed: 0.4s;
+}
+
+#channels ul[role=group] li {
+    display: grid !important;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    overflow: hidden;
+    list-style: none;
+    transition: 
+        grid-template-rows var(--thread-animation-speed) cubic-bezier(0.4, 0, 0.2, 1), 
+        opacity var(--thread-animation-speed) ease;
+    transition-delay: var(--thread-collapse-delay);
+}
+
+#channels ul[role=group] li > div, 
+#channels ul[role=group] li > svg {
+    min-height: 0;
+}
+
+#channels li[class$=containerDefault]:hover + li[class$=container] ul[role=group] li,
+#channels li[class$=selected] + li[class$=container] ul[role=group] li,
+#channels ul[role=group]:hover li,
+#channels ul[role=group] li[class$=selected] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition-delay: var(--thread-expand-delay);
+}
+
+#channels ul[role=group] li [class$=spine]:first-of-type {
+    opacity: 1;
+}
+
+#channels ul[role=group] li [class$=invertedSpine] {
+    opacity: 0 !important;
+    transition: opacity 0.2s ease;
+    transition-delay: var(--thread-collapse-delay);
+}
+
+#channels ul[role=group]:hover li [class$=invertedSpine],
+#channels li[class$=containerDefault]:hover + li[class$=container] [class$=invertedSpine],
+#channels li[class$=selected] + li[class$=container] [class$=invertedSpine] {
+    opacity: calc(1 - var(--always-hide-trailing-spine)) !important;
+    transition-delay: var(--thread-expand-delay);
+}
+
+#channels ul[role=group] li [class$=typeThread] {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+    transition: 
+        padding var(--thread-animation-speed) ease;
+    /* This MUST match the collapse delay or it snaps shut instantly */
+    transition-delay: var(--thread-collapse-delay);
+}
+
+#channels li[class$=containerDefault]:hover + li[class$=container] ul[role=group] li [class$=typeThread],
+#channels li[class$=selected] + li[class$=container] ul[role=group] li [class$=typeThread],
+#channels ul[role=group]:hover li [class$=typeThread],
+#channels ul[role=group] li[class$=selected] [class$=typeThread] {
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    transition-delay: var(--thread-collapse-delay);
+}
