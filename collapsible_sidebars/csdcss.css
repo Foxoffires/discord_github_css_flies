@@ -43,7 +43,7 @@
 
 .visual-refresh [class*="panels"] {
   position: fixed; /* Floating user panel (status, deafen, etc) */
-  width: 120px;
+  width: 160px;
   z-index: 999;
   opacity: 0%;
   left: -70px;
@@ -51,7 +51,7 @@
   transition-duration: .5s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-delay: 0.08s;
-  background: none;
+  background: color-mix(in srgb, white 5%, transparent);
   backdrop-filter: blur(0.1rem);
 }
 
