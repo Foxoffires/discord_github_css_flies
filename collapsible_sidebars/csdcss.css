@@ -43,7 +43,7 @@
 
 .visual-refresh [class*="panels"] {
   position: fixed; /* Floating user panel (status, deafen, etc) */
-  width: 72px;
+  width: 120px;
   z-index: 999;
   opacity: 0%;
   left: -70px;
@@ -78,4 +78,5 @@
 /* Make banners look right */
 .visual-refresh .f37cb1984c371ee5-bannerImage, .visual-refresh .f37cb1984c371ee5-bannerImg {
   width: 250px;
+  align-content: center;
 }
