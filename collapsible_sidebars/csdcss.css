@@ -28,7 +28,7 @@
   position: fixed;
   height: 100%;
   opacity: 0%;
-  left: -70px;
+  left: -40px;
   filter: drop-shadow(16px 16px 16px #0005) ;
   backdrop-filter: blur(0.2rem);
   transition-property: opacity, left, width;
