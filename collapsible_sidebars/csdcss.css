@@ -9,7 +9,7 @@
   opacity: 0%;
   height: 100%;
   z-index: 998;
-  left: -100px;
+  left: -90px;
   filter: drop-shadow(16px 16px 16px #0005);
   backdrop-filter: blur(0.2rem);
   transition-property: opacity, left, width;
